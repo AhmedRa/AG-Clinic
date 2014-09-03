@@ -872,8 +872,6 @@ public class ClinicFrame extends javax.swing.JFrame {
             jLabel23.setText("ادخل العنوان");
         } else if (jTextField12.getText().equals("")) {
             jLabel24.setText("ادخل رقم التليفون");
-        } else if (jTextField7.getText().equals("")) {
-            jLabel18.setText("ادخل السن");
         } else {
 
             DefaultTableModel model1 = (DefaultTableModel) jTable3.getModel();
@@ -886,7 +884,7 @@ public class ClinicFrame extends javax.swing.JFrame {
 
             try {
 
-                st.executeUpdate("UPDATE patient_reservation SET patient_Id " + "=" + jTextField13.getText() + "," + "patient_Name" + "=" + "'" + jTextField11.getText() + "'" + "," + "patient_Age" + "=" + jTextField10.getText()  + "," + "patient_Address" + "=" + "'" + jTextField9.getText() + "'" + "," + "patient_Telephone" + "=" + "'"+jTextField12.getText()+"'" + " WHERE (patient_Id " + "=" + jTextField13.getText() + ")");
+                st.executeUpdate("UPDATE patient_reservation SET patient_Id " + "=" + jTextField13.getText() + "," + "patient_Name" + "=" + "'" + jTextField11.getText() + "'" + "," + "patient_Age" + "=" + jTextField10.getText()  + "," + "patient_Address" + "=" + "'" + jTextField9.getText() + "'" + "," + "patient_Telephone" + "=" + "'"+jTextField12.getText()+"'" + " WHERE patient_Id " + "=" + jTextField13.getText() + "");
 
                 JOptionPane.showMessageDialog(null, "تم التعديل");
 

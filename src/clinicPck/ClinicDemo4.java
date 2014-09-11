@@ -3,21 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package clinicPck;
 
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.text.*;
 
 /**
  *
@@ -28,18 +24,26 @@ public class ClinicDemo4 extends javax.swing.JFrame {
     /**
      * Creates new form ClinicDemo4
      */
+    //JComboBox comboBox;
+    //ComboBoxModel model;
+    //JTextComponent editor;
+
+    //boolean selecting = false;
+
     public ClinicDemo4() {
         initComponents();
+
+        
         final JTextField textfield = (JTextField) jComboBox1.getEditor().getEditorComponent();
-        textfield.addKeyListener(new KeyAdapter() {
-            public void keyReleased(KeyEvent ke) {
-                SwingUtilities.invokeLater(new Runnable() {
-                    public void run() {
-                        comboFilter(textfield.getText());
-                    }
-                });
-            }
-        });
+         textfield.addKeyListener(new KeyAdapter() {
+         public void keyReleased(KeyEvent ke) {
+         SwingUtilities.invokeLater(new Runnable() {
+         public void run() {
+         comboFilter(textfield.getText());
+         }
+         });
+         }
+         });
     }
 
     /**
@@ -51,13 +55,11 @@ public class ClinicDemo4 extends javax.swing.JFrame {
         List<String> filterArray = new ArrayList<String>();
 
         String str1 = "";
-        
 
         try {
 
             String str = "SELECT patient_Name FROM patient_reservation WHERE patient_Name  LIKE '" + enteredText + "%'";
             String unicode = "?useUnicode=yes&characterEncoding=UTF-8";
-            
 
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Clinic" + unicode, "root", "root");
@@ -82,7 +84,8 @@ public class ClinicDemo4 extends javax.swing.JFrame {
             jComboBox1.hidePopup();
         }
     }
-    
+
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -184,17 +187,17 @@ public class ClinicDemo4 extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jComboBox1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBox1KeyPressed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jComboBox1KeyPressed
 
     private void jComboBox1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBox1KeyReleased
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jComboBox1KeyReleased
 
     /**
